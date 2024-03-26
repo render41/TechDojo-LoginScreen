@@ -1,0 +1,221 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Nunito Sans", sans-serif;
+  color: var(--blue-base);
+}
+
+:root {
+  --blue-base: #4c5762;
+  --white-base: rgb(243, 243, 243);
+  --orange-base: #e0c18e;
+  --size-checkbox: 28px;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  background-color: var(--white-base);
+}
+
+.container {
+  display: flex;
+}
+
+.meme-images-side {
+  width: 50%;
+  height: auto;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  overflow: hidden;
+
+  background: rgb(71, 95, 110);
+  background: linear-gradient(
+    140deg,
+    var(--blue-base) 34%,
+    var(--orange-base) 100%
+  );
+}
+
+.meme-images-side > img {
+  position: relative;
+  border-radius: 10px;
+  transition: 0.2s;
+  z-index: 0;
+}
+
+.meme-images-side img:nth-child(1) {
+  bottom: 14%;
+  right: -8%;
+}
+.meme-images-side img:nth-child(3) {
+  top: 12%;
+  left: -10%;
+}
+
+.meme-images-side img:hover {
+  z-index: 1;
+  transform: rotate(10deg) scale(1.1);
+}
+
+.account-side {
+  width: 50%;
+  height: 100vh;
+  background-color: var(--white-base);
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 1;
+}
+
+.image-logo {
+  margin-bottom: 5px;
+}
+
+.account-side > h3 {
+  margin-bottom: 30px;
+}
+
+.account-side form {
+  width: 450px;
+  padding: 12px;
+}
+
+.account-side > form > label,
+.password-group > label {
+  font-weight: bolder;
+  margin-top: 10px;
+}
+
+.account-side > form > input,
+.password-group > input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 6px;
+  margin-bottom: 20px;
+
+  border-color: var(--white-base);
+  border-width: 0;
+  border-radius: 5px;
+}
+.password-group {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.password-group > input {
+  flex-grow: 2;
+}
+
+.password-group > .icon-eye {
+  cursor: pointer;
+  position: absolute;
+  margin-top: 13.5px;
+  margin-right: 10px;
+}
+
+#remember-password-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 12px;
+}
+
+input[type="checkbox"] {
+  width: var(--size-checkbox);
+  height: var(--size-checkbox);
+  margin-right: 10px;
+  display: grid;
+  place-content: center;
+
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: #fff;
+
+  font: inherit;
+  color: var(--blue-base);
+  border: 0.15em solid var(--blue-base);
+  border-radius: 0.3em;
+}
+
+input[type="checkbox"]::before {
+  content: "";
+  width: 1em;
+  height: 1em;
+  transform: scale(0);
+  transition: 0.12s transform;
+  box-shadow: inset 1em 1em var(--blue-base);
+}
+input[type="checkbox"]:checked::before {
+  transform: scale(1) rotate(90deg);
+}
+
+.account-side > form > button {
+  width: 100%;
+  height: 40px;
+  margin-top: 20px;
+  background-color: #c1a06a;
+  color: var(--white-base);
+  font-size: 1.2em;
+  font-weight: bolder;
+  border-radius: 8px;
+  border-width: 0;
+  transition: background-color 0.2s;
+  cursor: pointer;
+}
+
+.account-side > form > button:hover {
+  background-color: var(--orange-base);
+}
+
+#create-account-text {
+  margin-top: 20px;
+  text-align: center;
+}
+
+#create-account-text > span > a {
+  color: var(--orange-base);
+  text-decoration: none;
+}
+
+@media only screen and (max-width: 1100px) {
+  .meme-images-side img {
+    width: 35%;
+  }
+}
+
+@media only screen and (max-width: 950px) {
+  .meme-images-side {
+    width: 0;
+    content-visibility: hidden;
+    transition: 0.2s;
+  }
+
+  .account-side {
+    width: 100%;
+    transition: 0.2s;
+  }
+}
+
+@media only screen and (max-width: 460px) {
+  .account-side form {
+    transition: 0.2s;
+    width: 300px;
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  .account-side form {
+    transition: 0.2s;
+    width: 250px;
+  }
+}
